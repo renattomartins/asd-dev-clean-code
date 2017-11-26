@@ -14,12 +14,30 @@ public class MoneyTest extends TestCase {
 		return new TestSuite(MoneyTest.class);
 	}
 
+	public void testShouldReturnValorInvalidoWhen13dot92() {
+		Money money = new Money(13.92);
+
+		assertEquals("Valor inválido", money.toNumberInFull());
+	}
+
+	public void testShouldReturnValorInvalidoWhen23Negative() {
+		Money money = new Money(-23.00);
+
+		assertEquals("Valor inválido", money.toNumberInFull());
+	}
+
+	public void testShouldReturnValorInvalidoWhenMilQutrocentosECinquentaESeis() {
+		Money money = new Money(1456.00);
+
+		assertEquals("Valor inválido", money.toNumberInFull());
+	}
+
 	public void testShouldReturnOitoReaisWhen8() {
 		Money money = new Money(8.00);
 
 		assertEquals("Oito reais", money.toNumberInFull());
 	}
-	
+
 	public void testShouldReturnDezReaisWhen10() {
 		Money money = new Money(10.00);
 
@@ -61,7 +79,7 @@ public class MoneyTest extends TestCase {
 
 		assertEquals("Duzentos e trinta reais", money.toNumberInFull());
 	}
-	
+
 	public void testShouldReturnTrezentosEDezesseisReaisWhen216() {
 		Money money = new Money(216.00);
 

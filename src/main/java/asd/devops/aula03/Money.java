@@ -16,8 +16,13 @@ public class Money {
 	}
 
 	public String toNumberInFull() {
-		String numberInFull = "";
+		if ( this.money <= 0 || this.money % 1 != 0 || this.money > 999.99)
+		{
+			return "Valor inválido";
+		}
 
+		String numberInFull = "";
+		
 		int hundred = (int) this.money / 100;
 		int ten = (int) ((this.money % 100) / 10);
 		int unit = (int) this.money % 10;
