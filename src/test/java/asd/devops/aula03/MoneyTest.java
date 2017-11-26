@@ -14,9 +14,15 @@ public class MoneyTest extends TestCase {
 		return new TestSuite(MoneyTest.class);
 	}
 
-	public void testShouldReturnQuarentaEDoisWhen42() {
+	public void testShouldReturnQuarentaEDoisReaisWhen42() {
 		Money money = new Money(42.00);
 		
 		assertEquals("Quarenta e dois reais", money.toNumberInFull());
+	}
+	
+	public void testShouldReturnSeiscentosESetentaEOitoReaisWhen678() {
+		Money money = new Money(678.00);
+		
+		assertEquals("Seiscentos e setenta e oito reais", money.toNumberInFull());
 	}
 }
