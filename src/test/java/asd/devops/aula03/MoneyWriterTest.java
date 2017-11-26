@@ -13,10 +13,6 @@ public class MoneyWriterTest extends TestCase {
 	public static Test suite() {
 		return new TestSuite(MoneyWriterTest.class);
 	}
-
-	public void testShouldReturnValorInvalidoWhen13dot92() {
-		assertEquals("Valor inválido", MoneyWriter.toNumberInFull(new Money(13.92)));
-	}
 	
 	public void testShouldReturnValorInvalidoWhen1456Negative() {
 		assertEquals("Valor inválido", MoneyWriter.toNumberInFull(new Money(-1456.00)));
@@ -24,6 +20,10 @@ public class MoneyWriterTest extends TestCase {
 
 	public void testShouldReturnValorInvalidoWhen1456() {
 		assertEquals("Valor inválido", MoneyWriter.toNumberInFull(new Money(1456.00)));
+	}
+	
+	public void testShouldReturnMenosCemReaisEVinteCentavosWhen100dot20Negative() {
+		assertEquals("Menos cem reais e vinte centavos", MoneyWriter.toNumberInFull(new Money(-100.20)));
 	}
 	
 	public void testShouldReturnMenosCemReaisWhen100Negative() {
@@ -37,6 +37,10 @@ public class MoneyWriterTest extends TestCase {
 	public void testShouldReturnZeroReaisWhen0() {
 		assertEquals("Zero reais", MoneyWriter.toNumberInFull(new Money(0.00)));
 	}
+	
+	public void testShouldReturnTrezeCentavosWhenDot13() {
+		assertEquals("Treze centavos", MoneyWriter.toNumberInFull(new Money(0.13)));
+	}
 
 	public void testShouldReturnOitoReaisWhen8() {
 		assertEquals("Oito reais", MoneyWriter.toNumberInFull(new Money(8.00)));
@@ -44,6 +48,10 @@ public class MoneyWriterTest extends TestCase {
 
 	public void testShouldReturnDezReaisWhen10() {
 		assertEquals("Dez reais", MoneyWriter.toNumberInFull(new Money(10.00)));
+	}
+	
+	public void testShouldReturnTrezeReaisENoventaEDoisCentavosWhen13dot92() {
+		assertEquals("Treze reais e noventa e dois centavos", MoneyWriter.toNumberInFull(new Money(13.92)));
 	}
 
 	public void testShouldReturnQuinzeReaisWhen15() {
@@ -80,5 +88,9 @@ public class MoneyWriterTest extends TestCase {
 
 	public void testShouldReturnNovecentosReaisWhen900() {
 		assertEquals("Novecentos reais", MoneyWriter.toNumberInFull(new Money(900.00)));
+	}
+	
+	public void testShouldReturnNovecentosENoventaENoveReaisENoventaENoveCentavosWhen999dot99() {
+		assertEquals("Novecentos e noventa e nove reais e noventa e nove centavos", MoneyWriter.toNumberInFull(new Money(999.99)));
 	}
 }
