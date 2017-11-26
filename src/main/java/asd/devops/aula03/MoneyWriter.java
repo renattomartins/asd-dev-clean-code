@@ -9,6 +9,8 @@ public class MoneyWriter {
 	private static final String HUNDRED = "cem";
 	private static final String CONECTOR = " e ";
 	private static final String CURRENCY_NAME = " reais";
+	private static final String NEGATIVE_PREFIXE = "menos ";
+	private static final String ZERO = "zero";
 	
 	private MoneyWriter() {}
 
@@ -16,8 +18,17 @@ public class MoneyWriter {
 		String numberInFull = "";
 		double number = money.getValue();
 
-		if (number <= 0 || number % 1 != 0 || number > 999.99) {
+		if (number <= -999.99 || number % 1 != 0 || number > 999.99) {
 			return "Valor inválido";
+		}
+		
+		if ( number < 0 ) {
+			numberInFull = MoneyWriter.NEGATIVE_PREFIXE;
+			number = -number;
+		}
+		
+		if ( number == 0 ) {
+			numberInFull = MoneyWriter.ZERO;
 		}
 
 		int hundred = (int) number / 100;
@@ -25,15 +36,15 @@ public class MoneyWriter {
 		int unit = (int) number % 10;
 
 		// hundreds
-		if (hundred > 0) {
-			numberInFull = MoneyWriter.HUNDREDS[hundred];
+		if (hundred > 0 && number != 100) {
+			numberInFull += MoneyWriter.HUNDREDS[hundred];
 			if (ten > 0 || unit > 0) {
 				numberInFull += MoneyWriter.CONECTOR;
 			}
 		}
 
 		if (number == 100) {
-			numberInFull = MoneyWriter.HUNDRED;
+			numberInFull += MoneyWriter.HUNDRED;
 		}
 
 		// dozens

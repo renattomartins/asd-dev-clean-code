@@ -17,13 +17,25 @@ public class MoneyWriterTest extends TestCase {
 	public void testShouldReturnValorInvalidoWhen13dot92() {
 		assertEquals("Valor inválido", MoneyWriter.toNumberInFull(new Money(13.92)));
 	}
-
-	public void testShouldReturnValorInvalidoWhen23Negative() {
-		assertEquals("Valor inválido", MoneyWriter.toNumberInFull(new Money(-23.00)));
+	
+	public void testShouldReturnValorInvalidoWhen1456Negative() {
+		assertEquals("Valor inválido", MoneyWriter.toNumberInFull(new Money(-1456.00)));
 	}
 
-	public void testShouldReturnValorInvalidoWhenMilQutrocentosECinquentaESeis() {
+	public void testShouldReturnValorInvalidoWhen1456() {
 		assertEquals("Valor inválido", MoneyWriter.toNumberInFull(new Money(1456.00)));
+	}
+	
+	public void testShouldReturnMenosCemReaisWhen100Negative() {
+		assertEquals("Menos cem reais", MoneyWriter.toNumberInFull(new Money(-100.00)));
+	}
+	
+	public void testShouldReturnMenosETresReaisWhen23Negative() {
+		assertEquals("Menos vinte e três reais", MoneyWriter.toNumberInFull(new Money(-23.00)));
+	}
+	
+	public void testShouldReturnZeroReaisWhen0() {
+		assertEquals("Zero reais", MoneyWriter.toNumberInFull(new Money(0.00)));
 	}
 
 	public void testShouldReturnOitoReaisWhen8() {
