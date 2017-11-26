@@ -13,6 +13,12 @@ public class MoneyTest extends TestCase {
 	public static Test suite() {
 		return new TestSuite(MoneyTest.class);
 	}
+	
+	public void testShouldReturnOitoReaisWhen8() {
+		Money money = new Money(8.00);
+		
+		assertEquals("Oito reais", money.toNumberInFull());
+	}
 
 	public void testShouldReturnQuarentaEDoisReaisWhen42() {
 		Money money = new Money(42.00);
