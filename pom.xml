@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>asd-dev-clean-code-and-vsts</groupId>
-  <artifactId>asd-dev-clean-code-and-vsts</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>asd-dev-clean-code</groupId>
+  <artifactId>asd-dev-clean-code</artifactId>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
 
-  <name>asd-dev-clean-code-and-vsts</name>
+  <name>asd-dev-clean-code</name>
   <url>http://maven.apache.org</url>
 
   <properties>
