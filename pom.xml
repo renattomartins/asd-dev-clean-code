@@ -4,7 +4,7 @@
 
   <groupId>asd-dev-clean-code</groupId>
   <artifactId>asd-dev-clean-code</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <packaging>jar</packaging>
 
   <name>asd-dev-clean-code</name>
